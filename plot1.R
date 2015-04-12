@@ -14,13 +14,12 @@ filter <- (as.Date(data$Date,format="%d/%m/%Y") >= as.Date("2007-02-01","%Y-%m-%
 # filter valid data
 data <- data[filter,]
 # add new column with datatime objects
-data$DateTime = strptime(paste(rawdata$Date,rawdata$Time," "),format = "%d/%m/%Y %H:%M:%S")
+data$DateTime = strptime(paste(data$Date,data$Time," "),format = "%d/%m/%Y %H:%M:%S")
 # drop colum Date and Time
 data$Date <- NULL
 data$Time <- NULL
 # create histogram
-hist(
-    data$Global_active_power, col="red",main="Global Active Power",xlab="Global Active Power (kilowatts)")
+hist(data$Global_active_power, col="red",main="Global Active Power",xlab="Global Active Power (kilowatts)")
 # copy plot to png file (default size for png is 480 x 480 px, so no explicit size have to be set)
 dev.copy(png,"plot1.png")
 dev.off()
