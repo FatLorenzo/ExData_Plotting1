@@ -5,6 +5,8 @@
 # Author: Lars Hermes
 #
 
+# As I'm working on an German environment I've to change the time settings
+Sys.setlocale(category = "LC_TIME", locale = "en_US")
 # setting class names for faster import
 classes <- c("character","character","numeric","numeric","numeric","numeric","numeric","numeric","numeric")
 # import data with defined column classes and treating '?' as NA

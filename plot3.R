@@ -5,6 +5,8 @@
 # Author: Lars Hermes
 #
 
+# As I'm working on an German environment I've to change the time settings
+Sys.setlocale(category = "LC_TIME", locale = "en_US")
 # setting class names for faster import
 classes <- c("character","character","numeric","numeric","numeric","numeric","numeric","numeric","numeric")
 # import data with defined column classes and treating '?' as NA
@@ -20,9 +22,9 @@ data$Date <- NULL
 data$Time <- NULL
 # create plot
 plot(data$DateTime,data$Sub_metering_1,type="n",ylab="Energy sub metering", xlab = "")
-points(data$DateTime,data$Sub_metering_1,type="l")
-points(data$DateTime,data$Sub_metering_2,type="l",col="red")
-points(data$DateTime,data$Sub_metering_3,type="l",col="blue")
+lines(data$DateTime,data$Sub_metering_1)
+lines(data$DateTime,data$Sub_metering_2,col="red")
+lines(data$DateTime,data$Sub_metering_3,col="blue")
 # adding legend (used a dummy value for text.width so that legend also fits in png file)
 legend("topright", c("Sub_metering_1","Sub_metering_2","Sub_metering_3"), lty=1,col=c("black","red","blue"),text.width=60000)
 # copy plot to png file (default size for png is 480 x 480 px, so no explicit size have to be set)
